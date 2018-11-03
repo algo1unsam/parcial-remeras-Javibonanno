@@ -17,8 +17,8 @@ describe "Test de remeras" {
 		levis.hacerPedidos(pedido1)
 		pedido1.agregarRemerasAlPedido(lisa)
 		levis.agregarMarcaComercial(disney)
-		assert.equals([disney,nike],levis.tieneConvenioComercial())
+		assert.equals(disney,levis.tieneConvenioComercial(disney))
 	}
-
+	
 }
 
