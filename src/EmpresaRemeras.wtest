@@ -1,0 +1,24 @@
+import remeras.*
+import pedidos.*
+import empresa.*
+import sucursales.*
+
+describe "Test de remeras" {
+
+	var remera1 = new Remera(tipoDeRemera = lisa)
+	var lisa = new Lisa(talle = 42, colorEsBasico = true)
+	var bordada = new Bordada(cantidadDeColores = 5)
+	var pedido1 = new Pedido()
+	var levis = new Empresa()
+	var disney = new MarcaComercial(costoDerechosDeAutor = 200)
+	var nike = new MarcaComercial(costoDerechosDeAutor = 200)
+	
+	test "La empresa levis tiene a disney como marca comercial" {
+		levis.hacerPedidos(pedido1)
+		pedido1.agregarRemerasAlPedido(lisa)
+		levis.agregarMarcaComercial(disney)
+		assert.equals([disney,nike],levis.tieneConvenioComercial())
+	}
+
+}
+
